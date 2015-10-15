@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/amingilani/tweet2emoji/issues"
   },
-  "homepage": "https://github.com/amingilani/tweet2emoji#readme"
+  "homepage": "https://github.com/amingilani/tweet2emoji#readme",
+  "dependencies": {
+    "twitter": "^1.2.5"
+  }
 }
