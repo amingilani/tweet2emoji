@@ -1,27 +1,27 @@
 {
   "name": "tweet2emoji",
-  "version": "1.0.0",
-  "description": "A tweet to emoji translator",
-  "main": "app.js",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/amingilani/tweet2emoji.git"
-  },
-  "keywords": [
-    "twitter",
-    "emoji",
-    "translate"
-  ],
-  "author": "Amin Shah Gilani <aminshahgilani@gmail.com> (http://amin.gilani.me)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/amingilani/tweet2emoji/issues"
-  },
-  "homepage": "https://github.com/amingilani/tweet2emoji#readme",
   "dependencies": {
-    "twitter": "^1.2.5"
+    "express": "^4.13.3",
+    "serve-favicon": "^2.3.0",
+    "morgan": "^1.6.1",
+    "cookie-parser": "^1.3.3",
+    "body-parser": "^1.13.3",
+    "compression": "^1.5.2",
+    "method-override": "^2.3.0",
+    "glob": "^5.0.3",
+    "ejs": "^2.3.1"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-develop": "^0.4.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "request": "^2.60.0",
+    "time-grunt": "^1.2.1",
+    "load-grunt-tasks": "^3.2.0"
   }
 }
