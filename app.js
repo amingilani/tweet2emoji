@@ -9,7 +9,7 @@ var app = express();
 require('./config/express')(app, config);
 
 app.listen(config.port, function () {
-  console.info('Express server listening on port ' + config.port);
+  log.info('Express server listening on port ' + config.port);
 });
 
 // track a term
