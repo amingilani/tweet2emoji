@@ -5,6 +5,7 @@ public/components
 logs
 *.log
 npm-debug.log*
+*.log.json
 
 # Runtime data
 pids
@@ -30,4 +31,3 @@ build/Release
 # https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
 node_modules
 # ===== End Node.gitignore =====
-
