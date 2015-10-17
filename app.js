@@ -21,13 +21,11 @@ io.on('connection', function(socket){
   trackTerm('obama', function(err, tweet) {
 
     // log errors
-    if (err) log.error(err);
+    if (err) return log.error(err);
 
     // emit tweets
-    if (tweet) {
       socket.emit('tweet', tweet);
       log.debug("Delivered tweet", tweet);
-    }
   });
 
 
