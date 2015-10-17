@@ -24,7 +24,7 @@ var config = {
     app: {
       name: 'tweet2emoji'
     },
-    port: 80,
+    port: process.env.PORT || 3000,
   }
 };
 
