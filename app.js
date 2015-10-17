@@ -18,7 +18,7 @@ io.on('connection', function(socket){
   log.debug('a user connected');
 
   // track a term
-  trackTerm('obama', function(err, tweet) {
+  trackTerm('tweet2emoji', function(err, tweet) {
 
     // log errors
     if (err) return log.error(err);

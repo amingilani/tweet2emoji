@@ -49,6 +49,8 @@
       console.log(tweet.text);
 
     angular.element(document.getElementById('ctrl')).scope().addNewItem(tweet);
+    var scope=angular.element(document.getElementById('ctrl')).scope();
+    scope.$apply();
     });
   </script>
 
@@ -62,7 +64,7 @@
 
 
 <div class="container">
-  <div id="ctrl" ng-controller="MyCtrl">
+  <div id="ctrl" ng-controller="MyCtrl" >
   <table class="table">
     <thead>
       <tr>
