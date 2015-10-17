@@ -3,7 +3,7 @@
 
 <head>
  <meta charset="utf-8">
-  
+
   <title>emoji-picker</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,16 +39,21 @@
     });
   </script>
 
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    var socket = io();
+  </script>
+
 </head>
 
 <body>
 
 
 
-          
-          
-       
-<div class="container">         
+
+
+
+<div class="container">
   <table class="table">
     <thead>
       <tr>
@@ -71,11 +76,11 @@
             <p id="output"> </p>
           </p> </td>
       </tr>
-      
+
     </tbody>
   </table>
   <div ng-app="">
- 
+
 <p>Input something in the input box:</p>
 <p>Name : <input type="text" ng-model="name" placeholder="Enter name here"></p>
 <h1>Hello {{name}}</h1>
@@ -93,7 +98,7 @@
 </script>
 
 
-  
+
 
 
 </body>
