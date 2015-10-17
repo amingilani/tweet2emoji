@@ -42,6 +42,9 @@
   <script src="/socket.io/socket.io.js"></script>
   <script>
     var socket = io();
+    socket.on('tweet', function(tweet) {
+      console.log("recieved tweet: " + tweet.text);
+    });
   </script>
 
 </head>
