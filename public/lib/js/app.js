@@ -1,8 +1,7 @@
 var app = angular.module("myapp", []);
 
 app.controller('MyCtrl', function($scope) {
-  $scope.tweets = [
-    
+  $scope.tweets = [   
   ];
   $scope.addNewItem = function(newItem) {
     $scope.tweets.push(angular.copy(newItem));

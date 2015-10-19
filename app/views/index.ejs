@@ -40,8 +40,6 @@
     });
   </script>
   <script src="/socket.io/socket.io.js"></script>
-
-
   <script>
     var socket = io();
     socket.on('tweet', function(tweet) {
@@ -53,17 +51,9 @@
     scope.$apply();
     });
   </script>
-
 </head>
-
 <body >
-
-
-
-
-
-
-<div class="container">
+<div style="overflow-y: scroll" class="container">
   <div id="ctrl" ng-controller="MyCtrl" >
   <table class="table">
     <thead>
