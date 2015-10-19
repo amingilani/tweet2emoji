@@ -51,31 +51,37 @@
 </head>
 
 <body>
-  <div style="overflow-y: scroll" class="container">
+  <div style="overflow-y: scroll;height:350px;" class="container">
     <div id="ctrl" ng-controller="MyCtrl">
-      <table class="table">
+      <table class="table" >
         <thead>
           <tr>
             <th class="col-sm-3">Tweet</th>
-            <th class="col-sm-3">Select EMO LULA</th>
+            <th class="col-sm-3">Tweet</th>
             <th class="col-sm-3">#TAG</th>
             <th class="col-sm-3">Magic</th>
           </tr>
         </thead>
         <tbody>
           <tr class="success" ng-repeat="tweet in tweets | reverse">
-            <td>{{tweet.text}}</td>
+            <td> <img src="{{tweet.user.profile_image_url}}" style="height:40px;width:40px;"></img>@{{tweet.user.screen_name}}<br>at &nbsp {{tweet.created_at}}</td>
             <td>
-              <p style="width:40%;" class="lead emoji-picker-container">
+              <p>{{tweet.text}} </p>
+          
+            </td>
+            <td style=" word-wrap:normal;"><p style="width:55%;" class="lead emoji-picker-container">
                 <input id="emoji" type="text" class="form-control" placeholder="Smiley Fucker" data-emojiable="true">
               </p>
-            </td>
-            <td>#LK</td>
             <td>
-              <p style="width:40%;">
-                <input type="submit" onclick="convert()" class="form-control" value="Khila de Lun" style="background-color:#B20000;color:#fff">
-                <p id="output"> </p>
-              </p>
+              
+                
+                
+                <button class="btn btn-default" onclick="convert()">
+                  <img src="/lib/img/tick.png" width="20" /> 
+
+                </button>
+<p id="output"> </p>
+              
             </td>
             <script>
               $(function() {
