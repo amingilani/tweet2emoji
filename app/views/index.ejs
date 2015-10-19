@@ -53,7 +53,7 @@
 <body>
   <div style="overflow-y: scroll;height:350px;" class="container">
     <div id="ctrl" ng-controller="MyCtrl">
-      <table class="table" >
+      <table class="table">
         <thead>
           <tr>
             <th class="col-sm-3">Tweet</th>
@@ -64,15 +64,18 @@
         </thead>
         <tbody>
           <tr class="success" ng-repeat="tweet in tweets | reverse">
-            <td> <img src="{{tweet.user.profile_image_url}}" style="height:40px;width:40px;"></img>@{{tweet.user.screen_name}}<br>at &nbsp {{tweet.created_at}}</td>
+            <td>
+              <img src="{{tweet.user.profile_image_url}}" style="height:40px;width:40px;"></img>@{{tweet.user.screen_name}}
+              <br>at &nbsp {{tweet.created_at}}</td>
             <td>
               <p>{{tweet.text}} </p>
 
             </td>
-            <td style=" word-wrap:normal;"><p style="width:55%;" class="lead emoji-picker-container">
+            <td style=" word-wrap:normal;">
+              <p style="width:55%;" class="lead emoji-picker-container">
                 <input id="emoji" type="text" class="form-control" placeholder="emoji" data-emojiable="true">
               </p>
-            <td>
+              <td>
 
 
 
@@ -80,23 +83,23 @@
                   <img src="/lib/img/tick.png" width="20" />
 
                 </button>
-<p id="output"> </p>
+                <p id="output"> </p>
 
-            </td>
-            <script>
-              $(function() {
-                // Initializes and creates emoji set from sprite sheet
-                window.emojiPicker = new EmojiPicker({
-                  emojiable_selector: '[data-emojiable=true]',
-                  assetsPath: 'lib/img/',
-                  popupButtonClasses: 'fa fa-smile-o'
+              </td>
+              <script>
+                $(function() {
+                  // Initializes and creates emoji set from sprite sheet
+                  window.emojiPicker = new EmojiPicker({
+                    emojiable_selector: '[data-emojiable=true]',
+                    assetsPath: 'lib/img/',
+                    popupButtonClasses: 'fa fa-smile-o'
+                  });
+                  // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
+                  // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+                  // It can be called as many times as necessary; previously converted input fields will not be converted again
+                  window.emojiPicker.discover();
                 });
-                // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
-                // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
-                // It can be called as many times as necessary; previously converted input fields will not be converted again
-                window.emojiPicker.discover();
-              });
-            </script>
+              </script>
           </tr>
         </tbody>
       </table>
