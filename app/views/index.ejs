@@ -11,6 +11,7 @@
   <!-- Begin emoji-picker Stylesheets -->
   <link href="lib/css/nanoscroller.css" rel="stylesheet">
   <link href="lib/css/emoji.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
   <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
   <!-- Begin emoji-picker JavaScript -->
   <script src="lib/js/nanoscroller.min.js"></script>
@@ -56,20 +57,20 @@
       <table class="table">
         <thead>
           <tr>
+            <th class="col-sm-3">User</th>
             <th class="col-sm-3">Tweet</th>
-            <th class="col-sm-3">Tweet</th>
-            <th class="col-sm-3">#TAG</th>
-            <th class="col-sm-3">Magic</th>
+            <th class="col-sm-3">Emoji</th>
+            <th class="col-sm-3">Done</th>
           </tr>
         </thead>
         <tbody>
           <tr class="success" ng-repeat="tweet in tweets | reverse">
             <td>
               <img src="{{tweet.user.profile_image_url}}" style="height:40px;width:40px;"></img>@{{tweet.user.screen_name}}
-              <br>at &nbsp {{tweet.created_at}}</td>
+              <br>at &nbsp {{tweet.created_at}}
+            </td>
             <td>
               <p>{{tweet.text}} </p>
-
             </td>
             <td style=" word-wrap:normal;">
               <p style="width:55%;" class="lead emoji-picker-container">
@@ -105,10 +106,17 @@
       </table>
     </div>
   </div>
-
   <div class="container">
     <% include display %>
   </div>
+  <footer>
+    <div class="container">
+      <p class="text-muted">
+        <strong>&lt;&gt;</strong> with &hearts; by <a href="http://128bits.co">128bits</a> in <strong>PK</strong>
+      </p>
+    </div>
+  </footer>
+
 
   <script type="text/javascript">
     function convert() {
