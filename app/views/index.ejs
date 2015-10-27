@@ -1,10 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myapp">
   <head>
     <meta charset="utf-8">
     <title>Say it with Emoji</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Begin emoji-picker Stylesheets -->
+    <link href="lib/css/nanoscroller.css" rel="stylesheet">
+    <link href="lib/css/emoji.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- Begin emoji-picker JavaScript -->
+    <script src="lib/js/nanoscroller.min.js"></script>
+    <script src="lib/js/tether.min.js"></script>
+    <script src="lib/js/config.js"></script>
+    <script src="lib/js/util.js"></script>
+    <script src="lib/js/jquery.emojiarea.js"></script>
+    <script src="lib/js/emoji-picker.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script type="text/javascript" src="lib/js/app.js"></script>
+    <script>
+      $(function() {
+        // Initializes and creates emoji set from sprite sheet
+        window.emojiPicker = new EmojiPicker({
+          emojiable_selector: '[data-emojiable=true]',
+          assetsPath: 'lib/img/',
+          popupButtonClasses: 'fa fa-smile-o'
+        });
+        // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
+        // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+        // It can be called as many times as necessary; previously converted input fields will not be converted again
+        window.emojiPicker.discover();
+      });
+    </script>
   </head>
-  <body>
-    Hello world!
+  <body id="ctrl" ng-controller="MyCtrl">
+    <div class="displays" ng-repeat="tweet in display">
+      <p>{{ tweet.emoji }}</p>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+      socket.on('display', function(tweet) {
+        //  add to display que(tweet);
+        console.log("recieved a new tweet " + tweet.emoji);
+        var scope = angular.element(document.getElementById('ctrl')).scope();
+        scope.addToDisplay(tweet);
+        scope.$apply();
+      });
+    </script>
   </body>
 </html>

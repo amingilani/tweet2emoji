@@ -23,7 +23,14 @@ io.on('connection', function(socket) {
   // send out tweets when they happen
   ee.on("twitter", function (tweet) {
       socket.emit('tweet', tweet);
-      log.debug("Sent out tweet", tweet);
+//      log.debug("Sent out tweet", tweet);
+  });
+
+  // when an admin broadcasts a new tweet
+  socket.on("display", function(displayTweet) {
+    log.debug(displayTweet);
+    socket.broadcast.emit("display", displayTweet);
+    log.debug("Sent a tweet to the display", displayTweet);
   });
 });
 
@@ -33,5 +40,5 @@ trackTerm('tweet2emoji', function(err, tweet) {
   if (err) return log.error(err);
   // emit tweets
   ee.emit('twitter', tweet);
-  log.debug("Heard a tweet", tweet);
+//  log.debug("Heard a tweet", tweet);
 });
