@@ -6,5 +6,7 @@ module.exports = function (app) {
 };
 
 router.get('/', function (req, res, next) {
-    res.render('display');
+    res.render('display', {
+      title: "Say it with Emoji"
+    });
 });

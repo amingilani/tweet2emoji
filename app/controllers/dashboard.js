@@ -6,5 +6,7 @@ module.exports = function (app) {
 };
 
 router.get('/dashboard', function (req, res, next) {
-    res.render('dashboard');
+    res.render('dashboard', {
+      title: "Dashboard"
+    });
 });
