@@ -28,11 +28,12 @@
     var input = document.getElementById("emoji")
       .value;
     output.innerHTML = input;
-    var lol = {
+    var tweet2Display = {
       emoji: input
+      tweet:
     };
-    socket.emit("display", lol);
-    console.log("Sent tweet to dashboard " + lol.emoji);
+    socket.emit("display", tweet2Display);
+    console.log("Sent tweet to dashboard " + tweet2Display.emoji);
   }
   socket
     .on('display', function(tweet) {
