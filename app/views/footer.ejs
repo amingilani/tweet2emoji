@@ -30,7 +30,6 @@
     output.innerHTML = input;
     var tweet2Display = {
       emoji: input
-      tweet:
     };
     socket.emit("display", tweet2Display);
     console.log("Sent tweet to dashboard " + tweet2Display.emoji);
