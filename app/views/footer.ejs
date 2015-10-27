@@ -1,2 +1,61 @@
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<!-- Begin emoji-picker JavaScript -->
+<script src="lib/js/nanoscroller.min.js"></script>
+<script src="lib/js/tether.min.js"></script>
+<script src="lib/js/config.js"></script>
+<script src="lib/js/util.js"></script>
+<script src="lib/js/jquery.emojiarea.js"></script>
+<script src="lib/js/emoji-picker.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src="lib/js/app.js" type="text/javascript"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  $(function() {
+    // Initializes and creates emoji set from sprite sheet
+    window.emojiPicker = new EmojiPicker({
+      emojiable_selector: '[data-emojiable=true]',
+      assetsPath: 'lib/img/',
+      popupButtonClasses: 'fa fa-smile-o'
+    });
+    // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
+    // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+    // It can be called as many times as necessary; previously converted input fields will not be converted again
+    window.emojiPicker
+      .discover();
+  });
+  var socket = io();
+  socket
+    .on('tweet', function(tweet) {
+      //  app.addNewItem(tweet);
+      console.log(tweet.text);
+      var scope = angular.element(document.getElementById('ctrl'))
+        .scope();
+      scope.addNewItem(tweet);
+      scope.$apply();
+    });
+
+  function convert() {
+    var output = document.getElementById("output");
+    var input = document.getElementById("emoji")
+      .value;
+    output.innerHTML = input;
+    var lol = {
+      emoji: input
+    };
+    socket.emit("display", lol);
+    console.log("Sent tweet to dashboard " + lol.emoji);
+  }
+  socket
+    .on('display', function(tweet) {
+      //  add to display que(tweet);
+      console.log("recieved a new tweet " + tweet.emoji);
+      var scope = angular.element(document.getElementById('ctrl'))
+        .scope();
+      scope.addToDisplay(tweet);
+      scope.$apply();
+    });
+</script>
 </body>
-</html>
+<html>
