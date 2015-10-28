@@ -27,9 +27,12 @@
     var output = document.getElementById("output");
     var input = document.getElementById("emoji")
       .value;
+    var t_text = document.getElementById("t_text").value;
+
     output.innerHTML = input;
     var tweet2Display = {
-      emoji: input
+      emoji: input,
+      tweet: t_text
     };
     socket.emit("display", tweet2Display);
     console.log("Sent tweet to dashboard " + tweet2Display.emoji);

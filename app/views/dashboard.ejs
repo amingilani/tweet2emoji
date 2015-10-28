@@ -1,5 +1,6 @@
-<% include header %>z
+<% include header %>
   <div style="overflow-y: scroll;height:350px;" class="container">
+
     <div>
       <table class="table">
         <thead>
@@ -12,12 +13,14 @@
         </thead>
         <tbody>
           <tr class="success" ng-repeat="tweet in tweets | reverse">
+
             <td>
               <img src="{{tweet.user.profile_image_url}}" style="height:40px;width:40px;"></img>@{{tweet.user.screen_name}}
               <br>at &nbsp {{tweet.created_at}}
             </td>
             <td>
-              <p>{{tweet.text}} </p>
+              <p>{{tweet.text}}</p>
+              <input type="hidden" id="t_text" value="{{tweet}}">
             </td>
             <td style=" word-wrap:normal;">
               <p style="width:55%;" class="lead emoji-picker-container">

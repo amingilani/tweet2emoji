@@ -23,7 +23,7 @@ io.on('connection', function(socket) {
   // send out tweets when they happen
   ee.on("twitter", function (tweet) {
       socket.emit('tweet', tweet);
-//      log.debug("Sent out tweet", tweet);
+      log.debug("Sent out tweet", tweet);
   });
 
   // when an admin broadcasts a new tweet
