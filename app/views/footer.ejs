@@ -74,11 +74,42 @@
         if(docs[1]!=null){
           if(!animated){
             animated = true;
+            fade_rest();
         move();
       }
 
       }
   });
+    function fade_rest(){
+        $("#rest").fadeOut(2000);
+
+
+
+    }
+    function fade_in_rest(){
+      move_back();
+        $("#rest").fadeIn(5000);
+
+    }
+    function move_back(){
+          
+            $("#smiley3").animate({
+                top: '+=270px',
+                height: "3ex",
+                left: '-200px'
+            }, 4000);
+            $("#smiley2").animate({
+                top: '+=270px',
+                height: "3ex"
+            }, 4000);
+            $("#smiley1").animate({
+                top: '+=270px',
+                left: '200px',
+                height: "3ex"
+            }, 4000);
+          var d=  setInterval(fade_in_rest, 10000);
+
+    }
       function move(){
               $("#smiley3").animate({
                   top: '-=270px',
@@ -94,6 +125,7 @@
                   left: '-=200px',
                   height: "10ex"
               }, 4000);
+            var d=  setInterval(fade_in_rest, 10000);
 
       }
       function animate_left(){
