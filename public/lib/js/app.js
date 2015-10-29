@@ -24,14 +24,22 @@ app.controller('MyCtrl', ['$scope', '$interval', function($scope, $interval) {
     $scope.currentDisplay.emoji = "Nothing to display";
     console.log("Nothing to display");
     } else {
+      pointer.emoji = emojione.unicodeToImage(pointer.emoji)
+      console.log(pointer.emoji)
     $scope.currentDisplay = pointer;
       console.log("Shifting from display to currentDisplay");
   }
-}, 1 * 1000);
+}, 10 * 1000);
 
 }]);
 app.filter('reverse', function() {
   return function(tweets) {
     return tweets.slice().reverse();
+  };
+});
+
+app.filter('unsafe', function($sce) {
+  return function(val) {
+    return $sce.trustAsHtml(val);
   };
 });

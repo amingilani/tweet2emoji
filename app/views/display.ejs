@@ -1,7 +1,15 @@
 <% include header %>
 
     <div class="displays">
-      <p>{{ currentDisplay.emoji }}</p>
+      <p id="smiles" ng-bind-html="currentDisplay.emoji | unsafe"></p>
     </div>
 
+
+<script type="text/javascript">
+/*
+$( document ).ready(function() {
+  convert1();
+});*/
+
+</script>
 <% include footer %>
