@@ -15,8 +15,9 @@
           <tr class="success" ng-repeat="tweet in tweets | reverse">
 
             <td>
-              <img src="{{tweet.user.profile_image_url}}" style="height:40px;width:40px;"></img>@{{tweet.user.screen_name}}
-              <br>at &nbsp {{tweet.created_at}}
+              <img src="{{tweet.user.profile_image_url}}" style="height:40px;width:40px;"></img><br>
+              <strong>@{{tweet.user.screen_name}}</strong><br>
+              at&nbsp <em>{{tweet.timestamp_ms | date:'d/M/YY h:mma'}}</em>
             </td>
             <td>
               <p>{{tweet.text}}</p>
