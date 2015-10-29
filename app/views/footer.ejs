@@ -65,7 +65,38 @@
       var output = emojione.unicodeToImage(input);
       document.getElementById('smiles').innerHTML = output;
     }
-  
+    var animated = false;
+    $("#smiles").bind("DOMSubtreeModified", function() {
+        var docs =document.getElementsByClassName("emojione");
+
+        docs[0].setAttribute("id","smile1");
+        docs[1].setAttribute("id","smile2");
+        docs[2].setAttribute("id","smile3");
+        if(docs[1]!=null){
+          if(!animated){
+            animated = true;
+        move();
+      }
+
+      }
+  });
+      function move(){
+              $("#smile3").animate({
+                  top: '-=270px',
+                  height: "10ex",
+                  left: '200px'
+              }, 4000);
+              $("#smile2").animate({
+                  top: '-=270px',
+                  height: "10ex"
+              }, 4000);
+              $("#smile1").animate({
+                  top: '-=270px',
+                  left: '-=200px',
+                  height: "10ex"
+              }, 4000);
+
+      }
 </script>
 
 </body>
