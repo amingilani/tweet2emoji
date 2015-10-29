@@ -66,6 +66,7 @@
     }
     var animated = false;
     $("#smiles").bind("DOMSubtreeModified", function() {
+
         var docs =document.getElementsByClassName("emojione");
 
         docs[0].setAttribute("id","smiley1");
@@ -74,24 +75,25 @@
         if(docs[1]!=null){
           if(!animated){
             animated = true;
-            fade_rest();
-        move();
+            move();
+
+
       }
 
       }
   });
     function fade_rest(){
-        $("#rest").fadeOut(2000);
-
-
+        $("#rest").fadeOut(5000);
 
     }
     function fade_in_rest(){
-      move_back();
-        $("#rest").fadeIn(5000);
 
+    //  move_back();
+
+        $("#rest").fadeIn(5000);
+        animated = false;
     }
-    function move_back(){
+/*    function move_back(){
             $("#smiles").fadeOut(2000);
             $("#smiley3").animate({
                 top: '+=270px',
@@ -109,8 +111,10 @@
             }, 4000);
           var d=  setInterval(fade_in_rest, 10000);
 
-    }
+    }*/
       function move(){
+            document.getElementById('smiles').style.removeProperty('display');
+              $('#smiley3').css('top','370');
               $("#smiley3").animate({
                   top: '-=270px',
                   height: "10ex",
@@ -125,7 +129,8 @@
                   left: '-=200px',
                   height: "10ex"
               }, 4000);
-            var d=  setInterval(fade_in_rest, 10000);
+              fade_rest();
+            setInterval(fade_in_rest, 10000);
 
       }
       function animate_left(){
