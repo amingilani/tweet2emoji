@@ -24,8 +24,8 @@ app.controller('MyCtrl', ['$scope', '$interval', function($scope, $interval) {
     $scope.currentDisplay.emoji = "Nothing to display";
     console.log("Nothing to display");
     } else {
-      pointer.emoji = emojione.unicodeToImage(pointer.emoji)
-      console.log(pointer.emoji)
+      pointer.emoji = emojione.unicodeToImage(pointer.emoji);
+      console.log(pointer.emoji);
     $scope.currentDisplay = pointer;
       console.log("Shifting from display to currentDisplay");
   }
