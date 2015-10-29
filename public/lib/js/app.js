@@ -21,7 +21,7 @@ app.controller('MyCtrl', ['$scope', '$interval', function($scope, $interval) {
     var pointer = $scope.display
       .shift();
     if (pointer === undefined) {
-    $scope.currentDisplay.emoji = "Nothing to display";
+    $scope.currentDisplay.emoji = "";
     console.log("Nothing to display");
     } else {
       pointer.emoji = emojione.unicodeToImage(pointer.emoji)
