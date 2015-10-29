@@ -1,5 +1,4 @@
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
 <!-- Begin emoji-picker JavaScript -->
 <script src="lib/js/nanoscroller.min.js"></script>
 <script src="lib/js/tether.min.js"></script>
@@ -65,7 +64,55 @@
       var output = emojione.unicodeToImage(input);
       document.getElementById('smiles').innerHTML = output;
     }
-  
+    var animated = false;
+    $("#smiles").bind("DOMSubtreeModified", function() {
+        var docs =document.getElementsByClassName("emojione");
+
+        docs[0].setAttribute("id","smiley1");
+        docs[1].setAttribute("id","smiley2");
+        docs[2].setAttribute("id","smiley3");
+        if(docs[1]!=null){
+          if(!animated){
+            animated = true;
+        move();
+      }
+
+      }
+  });
+      function move(){
+              $("#smiley3").animate({
+                  top: '-=270px',
+                  height: "10ex",
+                  left: '200px'
+              }, 4000);
+              $("#smiley2").animate({
+                  top: '-=270px',
+                  height: "10ex"
+              }, 4000);
+              $("#smiley1").animate({
+                  top: '-=270px',
+                  left: '-=200px',
+                  height: "10ex"
+              }, 4000);
+
+      }
+      function animate_left(){
+        for(var i =0;i<20;i++){
+        var  rand =Math.floor((Math.random() * 150) + 50);
+        var left1 = '';
+        left1 = left1 + rand;
+        var smiley = "#smile"+i;
+        $(smiley).animate({
+            left: left1
+          }, 2000,
+          function moveLeft(){
+            $(smiley).animate({left: left1}, 2000,animate_left)
+        }
+
+        );
+
+      }
+    }
 </script>
 
 </body>
